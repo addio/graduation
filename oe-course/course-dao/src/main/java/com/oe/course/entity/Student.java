@@ -18,8 +18,10 @@ public class Student implements Serializable {
 
     private Long userId;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    private Long schoolId;
+
+    public Long getSchoolId() {
+        return schoolId;
     }
 
     public Long getStudentId() {

@@ -18,6 +18,11 @@ public class Teacher implements Serializable {
 
     private Long userId;
 
+    private Long schoolId;
+
+    public Long getSchoolId() {
+        return schoolId;
+    }
     public Long getTeacherId() {
         return teacherId;
     }

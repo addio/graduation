@@ -1,7 +1,7 @@
 package com.oe.course.service;
 
-import com.oe.course.oe.entity.Student;
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import com.oe.course.entity.Student;
 
 /**
  * <p>
@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface StudentService {
 
+    Student selectStudentByUserId(Long userId);
+
+    void addStudent(Student student);
 }

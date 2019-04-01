@@ -22,8 +22,14 @@ public class Course implements Serializable {
 
     private String courseInfo;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    private Long schoolId;
+
+    public Long getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Long schoolId) {
+        this.schoolId = schoolId;
     }
 
     public Long getCourseId() {

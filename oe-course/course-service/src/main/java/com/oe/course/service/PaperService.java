@@ -1,7 +1,5 @@
 package com.oe.course.service;
 
-import com.oe.course.oe.entity.Paper;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -12,5 +10,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-04-01
  */
 public interface PaperService {
+
 
 }

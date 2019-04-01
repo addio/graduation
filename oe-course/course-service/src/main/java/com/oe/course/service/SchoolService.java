@@ -1,7 +1,7 @@
 package com.oe.course.service;
 
-import com.oe.course.oe.entity.School;
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import com.oe.course.entity.School;
 
 /**
  * <p>
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SchoolService {
 
+    School selectSchool(Long schoolId);
 }
