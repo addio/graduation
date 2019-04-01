@@ -1,0 +1,12 @@
+com\oe\account\dao\RoleDao.class
+com\oe\account\dao\UserDao.class
+com\oe\account\entity\RolePermission.class
+com\oe\account\mapper\UserMapper.class
+com\oe\account\mapper\RolePerMapper.class
+com\oe\account\entity\Permission.class
+com\oe\account\entity\Role.class
+com\oe\account\impl\UserDaoImpl.class
+com\oe\account\mapper\RoleMapper.class
+com\oe\account\entity\User.class
+com\oe\account\mapper\PermissionMapper.class
+com\oe\account\dao\PermissioDao.class

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="wangwenjie" id="201903291531">
+        <createTable tableName="user">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_name" type="varchar(100)" remarks="用户名"/>
+            <column name="password" type="varchar(256)"/>
+            <column name="role_id" type="bigint" remarks="角色id"/>
+        </createTable>
+
+        <createTable tableName="role">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role_name" type="varchar(100)" remarks="用户名"/>
+        </createTable>
+
+        <createTable tableName="permission">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="permission_name" type="varchar(256)"/>
+        </createTable>
+
+        <createTable tableName="role_permission">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role_id" type="bigint"/>
+            <column name="permission_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

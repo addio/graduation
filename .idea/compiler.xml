@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account-api" />
+        <module name="account-dao" />
+        <module name="account-service" />
+        <module name="account-web" />
+        <module name="course-api" />
+        <module name="course-dao" />
+        <module name="course-service" />
+        <module name="course-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-api" target="1.8" />
+      <module name="account-dao" target="1.8" />
+      <module name="account-service" target="1.8" />
+      <module name="account-web" target="1.8" />
+      <module name="course-api" target="1.8" />
+      <module name="course-dao" target="1.8" />
+      <module name="course-service" target="1.8" />
+      <module name="course-web" target="1.8" />
+      <module name="oe-account" target="1.8" />
+      <module name="oe-course" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account-api" options="-parameters" />
+      <module name="account-dao" options="-parameters" />
+      <module name="account-service" options="-parameters" />
+      <module name="account-web" options="-parameters" />
+      <module name="course-api" options="-parameters" />
+      <module name="course-dao" options="-parameters" />
+      <module name="course-service" options="-parameters" />
+      <module name="course-web" options="-parameters" />
+    </option>
+  </component>
+</project>

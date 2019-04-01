@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/oe-account/account-api/account-api.iml" filepath="$PROJECT_DIR$/oe-account/account-api/account-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-account/account-dao/account-dao.iml" filepath="$PROJECT_DIR$/oe-account/account-dao/account-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-account/account-service/account-service.iml" filepath="$PROJECT_DIR$/oe-account/account-service/account-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-account/account-web/account-web.iml" filepath="$PROJECT_DIR$/oe-account/account-web/account-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-course/course-api/course-api.iml" filepath="$PROJECT_DIR$/oe-course/course-api/course-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-course/course-dao/course-dao.iml" filepath="$PROJECT_DIR$/oe-course/course-dao/course-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-course/course-service/course-service.iml" filepath="$PROJECT_DIR$/oe-course/course-service/course-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-course/course-web/course-web.iml" filepath="$PROJECT_DIR$/oe-course/course-web/course-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/graduation.iml" filepath="$PROJECT_DIR$/.idea/graduation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-account/oe-account.iml" filepath="$PROJECT_DIR$/oe-account/oe-account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-course/oe-course.iml" filepath="$PROJECT_DIR$/oe-course/oe-course.iml" />
+    </modules>
+  </component>
+</project>

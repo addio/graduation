@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/oe-account" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-account/account-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-account/account-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-account/account-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-account/account-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-course" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-course/course-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-course/course-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-course/course-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-course/course-web" charset="UTF-8" />
+  </component>
+</project>
