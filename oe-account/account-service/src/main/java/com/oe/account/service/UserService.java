@@ -1,6 +1,7 @@
 package com.oe.account.service;
 
 import com.oe.account.entity.User;
+import com.oe.account.exception.OeException;
 
 /**
  * @author wangwj
@@ -8,9 +9,12 @@ import com.oe.account.entity.User;
  */
 public interface UserService {
 
-    void Login(User user);
+    User wxLogin(String code) throws OeException;
 
-    User getUserByUserName(String userName);
+    User getUserByUsername(String username);
+
 
     void register(User user);
+
+    void update(User user);
 }

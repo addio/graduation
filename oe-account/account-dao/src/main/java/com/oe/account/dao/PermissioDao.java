@@ -11,4 +11,6 @@ import java.util.List;
 public interface PermissioDao {
 
     List<Permission> selectPermissionByRId(Long rId);
+
+
 }

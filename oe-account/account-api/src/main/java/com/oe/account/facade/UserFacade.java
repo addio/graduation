@@ -9,7 +9,15 @@ import com.oe.account.vo.UserVo;
  */
 public interface UserFacade {
 
-    void Login(String userName,String password);
-    UserVo getUserByUserName(String userName) throws OeException;
+    /**
+     * 微信登录
+     *
+     * @param code
+     */
+    UserVo wxLogin(String code)throws OeException;
+
+    UserVo getUserByUsername(String oeSession) throws OeException;
+
+    void register(UserVo userVo) throws OeException;
 
 }

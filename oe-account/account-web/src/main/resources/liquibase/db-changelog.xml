@@ -4,14 +4,18 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
-    <changeSet author="wangwenjie" id="201903291531">
+    <changeSet author="wangwenjie" id="201904020931">
         <createTable tableName="user">
-            <column name="id" type="bigint">
+            <column name="id" type="varchar(256)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="user_name" type="varchar(100)" remarks="用户名"/>
             <column name="password" type="varchar(256)"/>
             <column name="role_id" type="bigint" remarks="角色id"/>
+            <column name="gender" type="tinyint"/>
+            <column name="nick_name" type="varchar(256)"/>
+            <column name="avatar_url" type="varchar(256)"/>
+            <column name="oe_session" type="varchar(1024)"/>
         </createTable>
 
         <createTable tableName="role">

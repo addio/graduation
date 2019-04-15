@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="201904101043" author="wangwenjie">
+        <createTable tableName="school">
+            <column name="school_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="school_name" type="varchar(100)"/>
+            <column name="school_info" type="text"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101044" author="wangwenjie">
+        <createTable tableName="course">
+            <column name="course_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_name" type="varchar(256)"/>
+            <column name="course_image" type="varchar(1000)"/>
+            <column name="course_info" type="text"/>
+            <column name="school_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101045" author="wangwenjie">
+        <createTable tableName="student">
+            <column name="student_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="varchar(100)"/>
+            <column name="school_id" type="bigint"/>
+            <column name="student_name" type="varchar(100)"/>
+            <column name="school_name" type="varchar(100)"/>
+            <column name="avatar_url" type="varchar(256)"/>
+            <column name="sex" type="tinyint"/>
+
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101046" author="wangwenjie">
+        <createTable tableName="teacher">
+            <column name="teacher_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint"/>
+            <column name="school_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101047" author="wangwenjie">
+        <createTable tableName="teacher_course">
+            <column name="course_id" type="bigint"/>
+            <column name="teacher_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101048" author="wangwenjie">
+        <createTable tableName="student_course">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_id" type="bigint"/>
+            <column name="student_id" type="bigint"/>
+            <column name="course_name" type="varchar(100)"/>
+            <column name="collect" type="tinyint" defaultValueNumeric="0"/>
+            <column name="i_join" type="tinyint" defaultValueNumeric="0"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101305" author="wangwenjie">
+        <createTable tableName="experiment">
+            <column name="experiment_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_id" type="bigint"/>
+            <column name="experiment_title" type="varchar(256)"/>
+            <column name="experiment_claim" type="text" remarks="实验要求"/>
+            <column name="experiment_purpose" type="text"/>
+            <column name="experiment_steps" type="text"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101306" author="wangwenjie">
+        <createTable tableName="paper" remarks="学生完成的内容">
+            <column name="paper_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="experiment_id" type="bigint"/>
+            <column name="student_id" type="bigint"/>
+            <column name="experiment_title" type="varchar(256)"/>
+            <column name="experiment_claim" type="text" remarks="实验要求"/>
+            <column name="experiment_purpose" type="text"/>
+            <column name="experiment_steps" type="text"/>
+            <column name="experiment_feeling" type="text"/>
+            <column name="experiment_status" type="tinyint"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

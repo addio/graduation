@@ -14,7 +14,7 @@ public class UserVo implements Vo {
 
 
 
-    private String userName;
+    private String username;
 
     private String password;
 
@@ -22,14 +22,12 @@ public class UserVo implements Vo {
 
     private List<Permission> pList;
 
-
-
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

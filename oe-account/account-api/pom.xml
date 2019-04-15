@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>account-api</artifactId>
+    <artifactId>api</artifactId>
 
 <dependencies>
     <dependency>
@@ -21,6 +21,23 @@
         <groupId>oe-account</groupId>
         <artifactId>account-dao</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>0.10.5</version>
+    </dependency>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>0.10.5</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>0.10.5</version>
+        <scope>runtime</scope>
     </dependency>
 </dependencies>
 </project>

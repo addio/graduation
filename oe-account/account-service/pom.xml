@@ -9,18 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>account-service</artifactId>
+    <artifactId>service</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>oe-account</groupId>
-            <artifactId>account-api</artifactId>
+            <artifactId>api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>oe-account</groupId>
-            <artifactId>account-dao</artifactId>
+            <artifactId>dao</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.56</version>
         </dependency>
     </dependencies>
 

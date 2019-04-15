@@ -18,7 +18,14 @@ public class User {
 
     private String password;
 
+    private Integer gender;
+
+    private String nickName;
+
+    private String avatarUrl;
     private Long roleId;
+
+    private String oeSession;
 
     @TableField(exist = false)
     private Role role;
@@ -32,6 +39,38 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getOeSession() {
+        return oeSession;
+    }
+
+    public void setOeSession(String oeSession) {
+        this.oeSession = oeSession;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getUserName() {

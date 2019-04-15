@@ -27,9 +27,10 @@ public class ShiroConfig {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
 
         Map<String, String> map = new HashMap<>(2);
-        map.put("/admin/**", "roles[admin]");
+        map.put("/oe/admin/**", "roles[admin]");
+        map.put("/oe/student/**","roles[student]");
+        map.put("/oe/teacher/**","roles[teacher]");
         factoryBean.setFilterChainDefinitionMap(map);
-        factoryBean.setLoginUrl("/login");
         factoryBean.setSecurityManager(defaultWebSecurityManager());
         return factoryBean;
     }

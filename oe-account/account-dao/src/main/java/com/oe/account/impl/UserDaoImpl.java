@@ -37,10 +37,26 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserByUserName(String userName) {
+    public User getUserByUsername(String username) {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(User::getUserName, userName);
+        wrapper.eq(User::getUserName, username);
         User user = userMapper.selectOne(wrapper);
+        return getRole(user);
+    }
+
+    @Override
+    public void register(User user) {
+        userMapper.insert(user);
+    }
+
+    @Override
+    public void update(User user) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(User::getUserName, user.getUserName());
+        userMapper.update(user, wrapper);
+    }
+
+    private User getRole(User user) {
         if (user != null) {
             user.setRole(roleMapper.selectById(user.getRoleId()));
             LambdaQueryWrapper<RolePermission> pWrapper = new LambdaQueryWrapper<>();
@@ -51,10 +67,5 @@ public class UserDaoImpl implements UserDao {
             return user;
         }
         return null;
-    }
-
-    @Override
-    public void register(User user) {
-
     }
 }

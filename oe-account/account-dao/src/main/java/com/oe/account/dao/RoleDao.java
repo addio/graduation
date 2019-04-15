@@ -9,4 +9,6 @@ import com.oe.account.entity.Role;
 public interface RoleDao {
 
     Role selectRoleByRid(Long rId);
+
+    void addRole(Role role);
 }

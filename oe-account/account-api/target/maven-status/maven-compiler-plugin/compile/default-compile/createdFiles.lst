@@ -3,5 +3,6 @@ com\oe\account\util\OeResponseBuilder.class
 com\oe\account\vo\OeResponse.class
 com\oe\account\exception\OeException.class
 com\oe\account\facade\UserFacade.class
+com\oe\account\util\JwtBuilder.class
 com\oe\account\vo\UserVo.class
 com\oe\account\vo\Vo.class

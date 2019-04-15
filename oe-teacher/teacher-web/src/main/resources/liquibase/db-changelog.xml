@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="201904101046" author="wangwenjie">
+        <createTable tableName="teacher">
+            <column name="teacher_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint"/>
+            <column name="school_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101047" author="wangwenjie">
+        <createTable tableName="teacher_course">
+            <column name="course_id" type="bigint"/>
+            <column name="teacher_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="201904101305" author="wangwenjie">
+        <createTable tableName="experiment">
+            <column name="experiment_id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_id" type="bigint"/>
+            <column name="experiment_title" type="varchar(256)"/>
+            <column name="experiment_claim" type="text" remarks="实验要求"/>
+            <column name="experiment_purpose" type="text"/>
+            <column name="experiment_steps" type="text"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

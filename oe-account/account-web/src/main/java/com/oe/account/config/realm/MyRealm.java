@@ -31,11 +31,11 @@ public class MyRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         LOGGER.info("授权！");
-        String userName = (String) principalCollection.getPrimaryPrincipal();
+        String username = (String) principalCollection.getPrimaryPrincipal();
         final SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
         try {
-            User user = userService.getUserByUserName(userName);
+            User user = userService.getUserByUsername(username);
             info.addRole(user.getRole().getRoleName());
             user.getpList().forEach((e) -> info.addStringPermission(e.getPermissionName()));
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         LOGGER.info("认证");
         String username = (String) authenticationToken.getPrincipal();
-        User user = userService.getUserByUserName(username);
+        User user = userService.getUserByUsername(username);
         if (user == null) {
             throw new UnknownAccountException();
         }

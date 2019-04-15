@@ -9,7 +9,9 @@ import com.oe.account.entity.User;
 public interface UserDao {
     void Login(User user);
 
-    User getUserByUserName(String userName);
+    User getUserByUsername(String username);
 
     void register(User user);
+
+    void update(User user);
 }

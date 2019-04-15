@@ -1,7 +1,7 @@
 spring:
   liquibase:
     enabled: true
-    change-log: classpath:liqiubase/db-changelog.xml
+    change-log: classpath:liquibase/db-changelog.xml
     drop-first: false
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -27,3 +27,7 @@ logging:
 mybatis-plus:
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.oe.account.entity
+server:
+  servlet:
+    context-path: /oe/account
+  port: 8088
