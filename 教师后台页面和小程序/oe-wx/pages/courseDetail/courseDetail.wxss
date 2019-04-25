@@ -1,0 +1,4 @@
+/* pages/courseDetail/courseDetail.wxss */
+.hide{
+    display: none
+}

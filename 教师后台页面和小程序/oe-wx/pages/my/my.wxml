@@ -1,0 +1,52 @@
+<wux-toptips id="wux-toptips" />
+<wux-wing-blank size="default">
+  <wux-white-space body-style="height: 20px" />
+  <view class="info">
+    <wux-card>
+      <view slot="body">
+        <wux-row>
+          <wux-col span='12'>
+            <wux-cell-group>
+              <wux-cell hover-class="none">
+                  <wux-grids bordered="{{ false }}" wx:if="{{!disabled}}">
+                    <wux-grid>
+                    </wux-grid>
+                    <wux-grid>
+                      <wux-avatar size="large" src="{{avatarUrl}}" />
+                    </wux-grid>
+                    <wux-grid>
+                    </wux-grid>
+                  </wux-grids>
+              </wux-cell>
+              <wux-cell hover-class="none">
+                <wux-input label="学号" placeholder="{{student.studentId?student.studentId:'请输入学号'}}" disabled="{{!disabled}}" bind:change="idInput" ></wux-input>
+              </wux-cell>
+              <wux-cell hover-class="none">
+                <wux-input label="姓名" placeholder="{{student.studentName?student.studentName:'请输入姓名'}}" disabled="{{!disabled}}" bind:change="nameInput" ></wux-input>
+              </wux-cell>
+              <wux-cell title="学校" extra="{{schoolName}}" disabled="{{!disabled}}" bind:click="chooseSchool"></wux-cell>
+
+            </wux-cell-group>
+            <wux-cell-group title="性别">
+              <block wx:for="{{ items }}" wx:key="">
+                <wux-cell title="{{ item.label }}">
+                  <wux-selectable slot="header" wux-class="checkbox" value="{{ item.value }}"
+                    checked="{{ current === item.value }}" controlled bind:change="onChange" />
+                </wux-cell>
+              </block>
+            </wux-cell-group>
+          </wux-col>
+        </wux-row>
+        <wux-button  wx:if="{{disabled}}" block size="default" type="positive" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+          绑定
+        </wux-button>
+        <wux-button  wx:if="{{!disabled}}" block size="default" type="assertive"  bind:click="modify">
+            修改
+          </wux-button>
+      </view>
+    </wux-card>
+  </view>
+
+</wux-wing-blank>
+
+<wux-select id="wux-select1" />

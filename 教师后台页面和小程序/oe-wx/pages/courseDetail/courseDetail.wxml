@@ -1,0 +1,85 @@
+<!--pages/courseDetail/courseDetail.wxml-->
+<wux-toptips id="wux-toptips" />
+<wux-dialog id="wux-dialog" />
+<wux-dialog id="wux-dialog--alert" />
+<wux-tabs wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+    <block wx:for="{{ tabs }}" wx:key="key">
+        <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+    </block>
+</wux-tabs>
+<swiper current="{{ index }}" bindchange="onSwiperChange" style="height: 100vh;">
+    <block wx:for="{{ tabs }}" wx:key="key">
+        <swiper-item>
+            <view class="courseDetail wux-balanced--bg" class="{{index==0?'':'hide'}}">
+                <wux-row>
+                    <wux-white-space size="default" />
+                    <wux-col span="24">
+                        <wux-wing-blank size="default">
+                            <wux-card extra="{{course.courseName}}" thumb="{{course.courseImage}}"
+                                thumb-style="border-radius: 20%;" style="border-radius: 20%;">
+                                <view slot="body">
+                                    <wux-row>
+                                        <wux-col span="4">
+                                            <wux-button type='{{course.collect==1?"light":"assertive"}}'
+                                                bind:click="collect">
+                                                <wux-icon type='{{course.collect==1?"ios-heart":"ios-heart-empty"}}'
+                                                    size="16" />{{course.collect==1?"取消收藏":"收藏课程"}} </wux-button>
+                                        </wux-col>
+                                        <wux-col span="4" push="5">
+                                            <wux-button type='{{course.join==1?"light":"positive"}}' bind:click="join">
+                                                <wux-icon type='{{course.join==1?"ios-checkmark":"ios-add-circle"}}'
+                                                    size="16" />
+                                                {{course.join==1?"退出课程":"参加课程"}} </wux-button>
+                                        </wux-col>
+                                    </wux-row>
+                                </view>
+                                <wux-white-space size="default" />
+                                <view slot="body">课程介绍</view>
+                                <view slot="footer">
+                                    <scroll-view scroll-y style="height: 30vh;" scroll-top="{{scrollTop}}">
+                                        {{course.courseInfo}}</scroll-view>
+                                </view>
+                            </wux-card>
+                        </wux-wing-blank>
+                        <wux-white-space size="default" />
+                        <wux-wing-blank size="default">
+                            <wux-cell-group>
+                                <wux-cell title="给个评分" hover-class="none">
+                                    <wux-rater slot="footer" default-value="{{ 0 }}" bind:change="sliderChange" />
+                                </wux-cell>
+                            </wux-cell-group>
+                        </wux-wing-blank>
+                    </wux-col>
+
+                </wux-row>
+            </view>
+            <view class="experimentList" class="{{index==1?'':'hide'}}">
+                <view class="list">
+                    <wux-cell-group title="实验">
+                        <view wx:for="{{experiments}}" wx:key>
+                            <navigator
+                                class="wux-hairline--surrounded wux-margin-top--10 wux-margin-left--10 wux-margin-right--10"
+                                url="/pages/paper/paper?experimentId={{item.experimentId}}">
+                                <wux-cell title="{{item.experimentTitle}}" is-link open-type="navigate">
+                                    <wux-tag wx:if="{{item.experimentStatus==0}}" color="red">未进行</wux-tag>
+                                    <wux-tag wx:if="{{item.experimentStatus==1}}" color="green">进行中</wux-tag>
+                                    <wux-tag wx:if="{{item.experimentStatus==2}}" color="#108ee9">已完成</wux-tag>
+
+                                </wux-cell>
+                            </navigator>
+                            <navigator wx:if="{{item.experimentStatus==2}}"
+                                class="wux-hairline--surrounded wux-margin-top--10 wux-margin-left--10 wux-margin-right--10"
+                                url="/pages/analysis/analysis?experimentId={{item.experimentId}}">
+                                <wux-cell is-link open-type="navigate">
+                                    <wux-tag color="#108ee9">
+                                        查看解析</wux-tag>
+                                </wux-cell>
+                            </navigator>
+                        </view>
+
+                    </wux-cell-group>
+                </view>
+            </view>
+        </swiper-item>
+    </block>
+</swiper>

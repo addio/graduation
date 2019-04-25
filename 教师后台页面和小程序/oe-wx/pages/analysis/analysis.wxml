@@ -1,0 +1,6 @@
+<!--pages/analysis/analysis.wxml-->
+<wux-cell-group title="解析">
+    <wux-cell hover-class="none">
+        <wux-textarea disabled value="{{analysis}}" controlled autoHeight  maxlength="-1" />
+    </wux-cell>
+</wux-cell-group>

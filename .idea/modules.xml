@@ -6,13 +6,17 @@
       <module fileurl="file://$PROJECT_DIR$/oe-account/account-dao/account-dao.iml" filepath="$PROJECT_DIR$/oe-account/account-dao/account-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/oe-account/account-service/account-service.iml" filepath="$PROJECT_DIR$/oe-account/account-service/account-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/oe-account/account-web/account-web.iml" filepath="$PROJECT_DIR$/oe-account/account-web/account-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oe-course/course-api/course-api.iml" filepath="$PROJECT_DIR$/oe-course/course-api/course-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oe-course/course-dao/course-dao.iml" filepath="$PROJECT_DIR$/oe-course/course-dao/course-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oe-course/course-service/course-service.iml" filepath="$PROJECT_DIR$/oe-course/course-service/course-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oe-course/course-web/course-web.iml" filepath="$PROJECT_DIR$/oe-course/course-web/course-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/graduation.iml" filepath="$PROJECT_DIR$/.idea/graduation.iml" />
       <module fileurl="file://$PROJECT_DIR$/oe-account/oe-account.iml" filepath="$PROJECT_DIR$/oe-account/oe-account.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oe-course/oe-course.iml" filepath="$PROJECT_DIR$/oe-course/oe-course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-student/oe-student.iml" filepath="$PROJECT_DIR$/oe-student/oe-student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-teacher/oe-teacher.iml" filepath="$PROJECT_DIR$/oe-teacher/oe-teacher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-student/student-api/student-api.iml" filepath="$PROJECT_DIR$/oe-student/student-api/student-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-student/student-dao/student-dao.iml" filepath="$PROJECT_DIR$/oe-student/student-dao/student-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-student/student-service/student-service.iml" filepath="$PROJECT_DIR$/oe-student/student-service/student-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-student/student-web/student-web.iml" filepath="$PROJECT_DIR$/oe-student/student-web/student-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-teacher/teacher-api/teacher-api.iml" filepath="$PROJECT_DIR$/oe-teacher/teacher-api/teacher-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-teacher/teacher-dao/teacher-dao.iml" filepath="$PROJECT_DIR$/oe-teacher/teacher-dao/teacher-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-teacher/teacher-service/teacher-service.iml" filepath="$PROJECT_DIR$/oe-teacher/teacher-service/teacher-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oe-teacher/teacher-web/teacher-web.iml" filepath="$PROJECT_DIR$/oe-teacher/teacher-web/teacher-web.iml" />
     </modules>
   </component>
 </project>

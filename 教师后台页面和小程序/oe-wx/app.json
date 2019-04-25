@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/course/course",
+    "pages/my/my",
+    "pages/experiment/experiment",
+    "pages/courseDetail/courseDetail",
+    "pages/paper/paper",
+    "pages/analysis/analysis"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/course/course",
+        " iconPath": "image/course.png",
+        " selectedIconPath": "image/course_selected.png",
+        "text": "实验"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/person.png",
+        "selectedIconPath": "image/person_selected.png",
+        " text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "wux-row": "../../dist/row/index",
+    "wux-col": "../../dist/col/index",
+    "wux-wing-blank": "../../dist/wing-blank/index",
+    "wux-white-space": "../../dist/white-space/index",
+    "wux-search-bar": "../../dist/search-bar/index",
+    "wux-filterbar": "../../dist/filterbar/index",
+    "wux-cell-group": "../../dist/cell-group/index",
+    "wux-cell": "../../dist/cell/index",
+    "wux-select": "../../dist/select/index",
+    "wux-accordion-group": "../../dist/accordion-group/index",
+    "wux-accordion": "../../dist/accordion/index",
+    "wux-icon": "../../dist/icon/index",
+    "wux-button": "../../dist/button/index",
+    "wux-tabs": "../../dist/tabs/index",
+    "wux-tab": "../../dist/tab/index",
+    "wux-badge": "../../dist/badge/index",
+    "wux-card": "../../dist/card/index",
+    "wux-rater": "../../dist/rater/index",
+    "wux-tabbar": "../../dist/tabbar/index",
+    "wux-tabbar-item": "../../dist/tabbar-item/index",
+    "wux-divider": "../../dist/divider/index",
+    "wux-avatar": "../../dist/avatar/index",
+    "wux-input": "../../dist/input/index",
+    "wux-selectable": "../../dist/selectable/index",
+    "wux-toptips": "../../dist/toptips/index",
+    "wux-grids": "../../dist/grids/index",
+    "wux-grid": "../../dist/grid/index",
+    "wux-backdrop": "../../dist/backdrop/index",
+    "wux-spin": "../../dist/spin/index",
+    "wux-tag": "../../dist/tag/index",
+    "wux-dialog": "../../dist/dialog/index",
+    "wux-textarea": "../../dist/textarea/index"
+  }
+}

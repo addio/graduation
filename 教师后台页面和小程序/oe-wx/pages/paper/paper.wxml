@@ -1,0 +1,90 @@
+<wux-toptips id="wux-toptips" />
+<wux-dialog id="wux-dialog" />
+<wux-dialog id="wux-dialog--alert" />
+<wux-tabs wux-class="bordered" controlled current="{{ key }}" bindchange="onTabsChange">
+    <block wx:for="{{ tabs }}" wx:key="key">
+        <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+    </block>
+</wux-tabs>
+<view style="height: 100vh;">
+    <view class="content" class="{{index==0?'':'hide'}}">
+        <wux-row>
+            <wux-white-space size="default" />
+            <wux-col span="24">
+                <wux-wing-blank size="default">
+                    <wux-card>
+                        <view slot="body">实验目的</view>
+                        <view slot="footer">
+                            <scroll-view scroll-y scroll-top="{{scrollTop}}">
+                                {{paper.experimentPurpose}}</scroll-view>
+                        </view>
+                    </wux-card>
+                </wux-wing-blank>
+            </wux-col>
+            <wux-white-space size="default" />
+            <wux-col span="24">
+                <wux-wing-blank size="default">
+                    <wux-card>
+                        <view slot="body">实验要求</view>
+                        <view slot="footer">
+                            <scroll-view scroll-y scroll-top="{{scrollTop}}">
+                                {{paper.experimentClaim}}</scroll-view>
+                        </view>
+                    </wux-card>
+                </wux-wing-blank>
+            </wux-col>
+            <wux-white-space size="default" />
+        </wux-row>
+
+    </view>
+    <view class="code" class="{{index==1?'':'hide'}}">
+            <view wx:for="{{paper.experimentSteps}}" wx:for-index="index2">
+                <wux-white-space size="default" />
+                <wux-cell-group title="步骤{{item.stepNum}}">
+                    <wux-cell hover-class="none">
+                        <wux-textarea disabled="{{paper.experimentStatus==2}}" controlled autoHeight
+                            data-index="{{index2}}" maxlength="-1" bind:change="onCodeInput" value="{{item.stepCode}}"
+                            placeholder="在此输入代码" />
+                    </wux-cell>
+                </wux-cell-group>
+            </view>
+            <wux-cell-group title="运行参数">
+                <wux-cell hover-class="none">
+                    <wux-input placeholder="请输入运行参数，用空格隔开" bind:change="onArgsInput"></wux-input>
+                </wux-cell>
+            </wux-cell-group>
+            <wux-button block size="large" bind:click="execute" type="positive">
+                运行代码
+            </wux-button>
+            <wux-cell-group title="代码运行结果">
+                <wux-cell hover-class="none">
+                    <wux-textarea hasCount rows="3" disabled value="{{result}}" controlled cursorSpacing="80" />
+                </wux-cell>
+            </wux-cell-group>
+       
+
+    </view>
+    <view class="feeling" class="{{index==2?'':'hide'}}">
+        <wux-cell-group title="实验心得">
+            <wux-cell hover-class="none">
+                <wux-textarea hasCount rows="3" disabled="{{paper.experimentStatus==2}}"
+                    value="{{paper.experimentFeeling}}" controlled cursorSpacing="80" bind:change="feelingInput"
+                    placeholder="在此输入心得" />
+            </wux-cell>
+        </wux-cell-group>
+        <wux-row>
+            <wux-col span="5">
+                <wux-button block size="large" bind:click="save" disabled="{{paper.experimentStatus==2}}"
+                    type="balanced">
+                    {{paper.experimentStatus!=2?"保存":"已保存"}}
+                </wux-button>
+            </wux-col>
+            <wux-col span="5" offset="2">
+                <wux-button block size="large" disabled="{{paper.experimentStatus==2}}" bind:click="submit"
+                    type="positive">
+                    {{paper.experimentStatus!=2?"提交":"已提交"}}
+                </wux-button>
+            </wux-col>
+        </wux-row>
+    </view>
+</view>

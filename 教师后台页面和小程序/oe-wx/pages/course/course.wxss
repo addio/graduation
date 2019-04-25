@@ -1,0 +1,4 @@
+@import '../../dist/styles/index.wxss';
+.hide{
+    display:none
+}

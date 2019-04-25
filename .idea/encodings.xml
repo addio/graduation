@@ -6,10 +6,15 @@
     <file url="file://$PROJECT_DIR$/oe-account/account-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oe-account/account-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oe-account/account-web" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oe-course" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oe-course/course-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oe-course/course-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oe-course/course-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oe-course/course-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-student" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-student/student-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-student/student-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-student/student-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-student/student-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-teacher" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-teacher/teacher-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-teacher/teacher-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-teacher/teacher-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oe-teacher/teacher-web" charset="UTF-8" />
   </component>
 </project>

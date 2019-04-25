@@ -10,10 +10,14 @@
         <module name="account-dao" />
         <module name="account-service" />
         <module name="account-web" />
-        <module name="course-api" />
-        <module name="course-dao" />
-        <module name="course-service" />
-        <module name="course-web" />
+        <module name="student-api" />
+        <module name="student-dao" />
+        <module name="student-service" />
+        <module name="student-web" />
+        <module name="teacher-api" />
+        <module name="teacher-dao" />
+        <module name="teacher-service" />
+        <module name="teacher-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,12 +25,17 @@
       <module name="account-dao" target="1.8" />
       <module name="account-service" target="1.8" />
       <module name="account-web" target="1.8" />
-      <module name="course-api" target="1.8" />
-      <module name="course-dao" target="1.8" />
-      <module name="course-service" target="1.8" />
-      <module name="course-web" target="1.8" />
       <module name="oe-account" target="1.8" />
-      <module name="oe-course" target="1.8" />
+      <module name="oe-student" target="1.8" />
+      <module name="oe-teacher" target="1.8" />
+      <module name="student-api" target="1.8" />
+      <module name="student-dao" target="1.8" />
+      <module name="student-service" target="1.8" />
+      <module name="student-web" target="1.8" />
+      <module name="teacher-api" target="1.8" />
+      <module name="teacher-dao" target="1.8" />
+      <module name="teacher-service" target="1.8" />
+      <module name="teacher-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -35,10 +44,14 @@
       <module name="account-dao" options="-parameters" />
       <module name="account-service" options="-parameters" />
       <module name="account-web" options="-parameters" />
-      <module name="course-api" options="-parameters" />
-      <module name="course-dao" options="-parameters" />
-      <module name="course-service" options="-parameters" />
-      <module name="course-web" options="-parameters" />
+      <module name="student-api" options="-parameters" />
+      <module name="student-dao" options="-parameters" />
+      <module name="student-service" options="-parameters" />
+      <module name="student-web" options="-parameters" />
+      <module name="teacher-api" options="-parameters" />
+      <module name="teacher-dao" options="-parameters" />
+      <module name="teacher-service" options="-parameters" />
+      <module name="teacher-web" options="-parameters" />
     </option>
   </component>
 </project>

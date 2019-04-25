@@ -1,0 +1,4 @@
+wx.setBackgroundTextStyle({
+    textStyle: 'dark'
+});
+  

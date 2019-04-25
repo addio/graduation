@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1>在线实验教师端</h1>
+  <button type="button" id="info" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+    修改教师信息
+  </button>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <button type="button" id="addCourse" class="btn btn-success">发布课程</button>
+    </div>
+    <div class="col-md-11 col-md-offset-1">
+      <table class="table table-hover">
+        <caption>我发布的课程</caption>
+        <thead>
+          <tr>
+            <th>课程id</th>
+            <th>课程名称</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="courses">
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">教师信息绑定</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="teacherId" class="col-sm-2 control-label">教师id</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="teacherId" placeholder="教师id">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="teacherName" class="col-sm-2 control-label">教师姓名</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="teacherName" placeholder="教师姓名">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="school" class="col-sm-2 control-label">学校</label>
+                  <form class="form-horizontal" id="school" role="form">
+                    <div class="form-group">
+                      <div class="col-lg-8">
+                        <select id="basic" class="selectpicker show-tick form-control" title="请选择学校"
+                          data-live-search="true">
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" id="save" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">课程信息</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="courseName" class="col-sm-2 control-label">课程名称</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="courseName" placeholder="课程名称">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="courseImage" class="col-sm-2 control-label">课程图片</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="courseImage" placeholder="请复制课程图片链接到这里">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="courseInfo" class="col-sm-2 control-label">课程信息</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="courseInfo" rows="5"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" id="saveCourse" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="experimentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">实验信息</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="experimentTitle" class="col-sm-2 control-label">实验标题</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="experimentTitle" placeholder="实验标题">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="experimentTitle" class="col-sm-2 control-label">实验目的</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="experimentPurpose" rows="5"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="experimentClaim" class="col-sm-2 control-label">实验要求</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="experimentClaim" rows="5"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="experimentSteps" class="col-sm-2 control-label">实验步骤</label>
+                  <div class="col-sm-10" id="stepList">
+                    <button type="button" id="addStep" class="btn btn-primary">添加步骤</button>
+                    <div id="experimentStep" style="margin-top:10px">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              步骤名
+                            </span>
+                            <input type="text" class="form-control" id="stepName" placeholder="输入步骤名">
+                          </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              步骤序号
+                            </span>
+                            <input type="text" class="form-control" id="stepNum" placeholder="输入步骤序号">
+                          </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                      </div><!-- /.row -->
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              步骤代码提示
+                            </span>
+                            <textarea class="form-control" id="stepCode" rows="5"></textarea>
+                          </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                      </div><!-- /.row -->
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="experimentAnalysis" class="col-sm-2 control-label">实验解析</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="experimentAnalysis" rows="5"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" id="saveExperiment" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquerySession.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-select.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-select.css">
+
+    <script>
+      $(function () {
+        var header = { "Authorization": $.session.get("authorization") };
+        if (!header) {
+          alert("未登录！")
+          window.location.href = "login.html";
+        }
+        getTeacherInfo();
+        $("#basic").on('show.bs.select', () => {
+          getSchool();
+        });
+        $("#save").on('click', () => {
+          updateTeacher()
+        });
+        $('#basic').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+          var item = $("#basic option:eq(" + clickedIndex + ")");
+          window.schoolId = item.val();
+          window.schoolName = item.text();
+        });
+        $("#addCourse").on("click", () => {
+          $('#courseModal').modal('show');
+        })
+        $("#addStep").on("click", () => {
+          var step = $("#experimentStep").eq(0).clone();
+          step.find("#stepNum").val("");
+          step.find("#stepCode").val("");
+          step.find("#stepName").val("");
+          
+          $("#stepList").append(step);
+        })
+        $('#courseModal').on('hidden.bs.modal', function (e) {
+          editIndex = undefined;
+          $("#courseName").val('');
+          $("#courseInfo").val('');
+          $("#courseImage").val('');
+        })
+
+        $('#experimentModal').on('hidden.bs.modal', function (e) {
+          editEIndex = undefined;
+          $("#experimentTitle").val('');
+          $("#experimentPurpose").val('');
+          $("#experimentClaim").val('');
+          $("#experimentAnalysis").val('');
+          $("#stepList").children("#experimentStep").not(":eq(0)").remove();
+          var step = $("#stepList").children("#experimentStep");
+          step.find("#stepNum").eq(0).val('');
+          step.find("#stepCode").eq(0).val('');
+          step.find("#stepName").eq(0).val('');
+        });
+
+        $("#saveCourse").on("click", () => {
+          var course = {
+            "courseId": "",
+            "courseName": "",
+            "courseInfo": "",
+            "courseImage": "",
+            "schoolId": "",
+            "teacherId": "",
+            "teacherName": "",
+          }
+          course.courseName = $("#courseName").val();
+          course.courseInfo = $("#courseInfo").val();
+          course.courseImage = $("#courseImage").val();
+          saveCourse(course);
+        });
+        $("#saveExperiment").on("click", () => {
+          var experiment = {
+            "experimentId": "",
+            "experimentTitle": "",
+            "experimentClaim": "",
+            "experimentPurpose": "",
+            "experimentSteps": [],
+            "courseId": "",
+          }
+          experiment.experimentClaim = $("#experimentClaim").val();
+          experiment.experimentPurpose = $("#experimentPurpose").val();
+          experiment.experimentTitle = $("#experimentTitle").val();
+          experiment.experimentAnalysis = $("#experimentAnalysis").val();
+          experiment.courseId = courseId;
+          var stepList = $("#stepList").children("#experimentStep");
+
+          for (var i = 0; i < stepList.length; i++) {
+            var step = {
+              "stepName": "",
+              "stepNum": 0,
+              "stepCode": "",
+              "stepStatus": 1
+            }
+            step.stepNum = stepList.find("#stepNum").eq(i).val();
+            step.stepCode = stepList.find("#stepCode").eq(i).val();
+            step.stepName = stepList.find("#stepName").eq(i).val();
+            experiment.experimentSteps.push(step);
+          }
+          console.log(experiment);
+          addExperiment(experiment);
+        });
+      })
+      var header = { "Authorization": $.session.get("authorization") };
+      editIndex = undefined;
+      editEIndex = undefined;
+      getTeacherInfo = () => {
+        $.ajax({
+          url: "http://129.204.38.10/oe/student/getTeacherInfo",
+          method: 'get',
+          contentType: "application/json",
+          headers: header,
+          success: (res, code, request) => {
+            if (res.code == 1) {
+              $.session.set("teacherId", res.body.teacherId);
+              $.session.set("teacherName", res.body.teacherName);
+              $.session.set("schoolId", res.body.schoolId);
+              $("h1").after("<h3>欢迎，" + res.body.teacherName + "</h3>");
+              getCourses(res.body.teacherId);
+            } else if (res.code == -1) {
+              if (res.msg.indexOf("JWT") != -1) {
+                window.location.href = "login.html";
+              };
+              console.log(res.msg);
+              $('#myModal').modal('show');
+
+            }
+          },
+          error: () => {
+            window.location.href = "login.html";
+          }
+        })
+      },
+        getSchool = () => {
+          var data = { "current": 1 }
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/getSchools",
+            data: JSON.stringify(data),
+            method: 'post',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                let schools = res.body.records;
+                var options = "";
+                for (var i = 0; i < schools.length; i++) {
+                  $(".selectpicker").empty();
+                  options += '<option value="' + schools[i].schoolId + '">' + schools[i].schoolName + '</option>'
+                }
+                $(".selectpicker").append(options);
+                $(".selectpicker").selectpicker('refresh');
+                console.log(options);
+              }
+            }
+          })
+        },
+        updateTeacher = () => {
+          console.log(schoolName);
+          var teacherId = $("#teacherId").val();
+          var teacherName = $("#teacherName").val();
+          var data = { "teacherId": teacherId, "teacherName": teacherName, "schoolId": schoolId, "schoolName": schoolName }
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/updateTeacher",
+            data: JSON.stringify(data),
+            method: 'post',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                $("#myModal").modal('hide');
+              }
+            }
+          });
+        },
+        getCourses = (teacherId, schoolId) => {
+          var data = { "teacherId": teacherId }
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/getCoursesByTeacherId",
+            data: data,
+            method: 'get',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                $("#courses").empty();
+                courses = res.body.records;
+                for (var i = 0; i < courses.length; i++) {
+                  var row = '<tr id = "course' + i + '" class="active"><td>' + courses[i].courseId + '</td><td>' + courses[i].courseName + '</td><td>' +
+                    '<button type="button" id = "edit' + i + '" class="btn btn-primary">编辑</button>' +
+                    '<button type="button" id="delete' + i + '" style = "margin-left:20px" class="btn btn-danger">删除</button>' +
+                    '<button type="button" data-toggle="collapse" data-target="#experimentList' +
+                    courses[i].courseId + '" style = "margin-left:20px"  class="btn btn-primary">展开/折叠实验</button>' +
+                    '</td></br></tr>';
+                  var ex = '<div id="experimentList' + courses[i].courseId + '" class="panel-collapse collapse in">' +
+                    '<div class="panel-body">' +
+                    '<button type="button" id="addExperiment' + courses[i].courseId + '" class="btn btn-primary">' +
+                    '新增实验</button><table class="table table-hover">' +
+                    '<caption>我发布的实验</caption>' +
+                    '<thead><tr><th>实验id</th><th>实验名称</th>' +
+                    '<th>操作</th></tr></thead> <tbody id="experiments">' +
+                    '</tbody></table></div></div>';
+                  $("#courses").append(row);
+                  $("#course" + i).after(ex);
+                  $("#addExperiment" + courses[i].courseId).on("click", () => {
+                    console.log("test2");
+                    $('#experimentModal').modal('show');
+                  });
+                  $("#experimentList" + courses[i].courseId).collapse('hide');
+                  $("#experimentList" + courses[i].courseId).on('show.bs.collapse', (obj) => {
+                    courseId = obj.currentTarget.id.replace("experimentList", "");
+                    for (var i = 0; i < courses.length; i++) {
+                      if (courses[i].courseId != courseId) {
+                        $("#experimentList" + courses[i].courseId).collapse('hide');
+                      }
+                    }
+                    console.log(courseId);
+                    getExperiments(courseId);
+                  });
+                  $("#experimentList" + courses[i].courseId).on('hidden.bs.collapse', function (obj) {
+                    var courseId = obj.currentTarget.id.replace("experimentList", "");
+                    $("#experimentList" + courseId).find("#experiments").empty();
+                  });
+                  $("#edit" + i).on("click", (obj) => {
+                    editIndex = obj.currentTarget.id.slice(4, 5);
+                    $('#courseModal').modal('show');
+                    $("#courseName").val(courses[editIndex].courseName);
+                    $("#courseInfo").val(courses[editIndex].courseInfo);
+                    $("#courseImage").val(courses[editIndex].courseImage);
+                  });
+                  $("#delete" + i).on("click", (obj) => {
+                    let index = obj.currentTarget.id.slice(6, 7);
+                    if (confirm("确定删除")) {
+                      deleteCourse(courses[index].courseId);
+                    }
+
+                  });
+                }
+              }
+            }
+          });
+        }
+      saveCourse = (course) => {
+        var url;
+        if (editIndex) {
+          url = "http://129.204.38.10/oe/student/updateCourse"
+          course.courseId = courses[editIndex].courseId;
+        } else {
+          url = "http://129.204.38.10/oe/student/addCourse"
+        }
+        var teacherId = $.session.get("teacherId");
+        var schoolId = $.session.get("schoolId");
+        var teacherName = $.session.get("teacherName");
+        course.teacherId = teacherId;
+        course.schoolId = schoolId;
+        course.teacherName = teacherName;
+        $.ajax({
+          url: url,
+          data: JSON.stringify(course),
+          method: 'post',
+          contentType: "application/json",
+          headers: header,
+          success: (res) => {
+            if (res.code == 1) {
+              $("#courseModal").modal('hide');
+              getCourses(teacherId, schoolId)
+            }
+          }
+        });
+      },
+        deleteCourse = (courseId) => {
+          var data = { "courseId": courseId }
+          var schoolId = $.session.get("schoolId");
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/deleteCourse",
+            data: data,
+            method: 'get',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                getCourses(teacherId, schoolId)
+              } else {
+                alert(res.msg);
+              }
+            }
+          });
+        },
+        getExperiments = (courseId) => {
+          var data = { "courseId": courseId }
+          var schoolId = $.session.get("schoolId");
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/getTeacherExperimentsByCourseId",
+            data: data,
+            method: 'get',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                $("#experimentList" + courseId).find("#experiments").empty();
+                experiments = res.body.records
+                var tr = "";
+                for (var i = 0; i < experiments.length; i++) {
+                  tr = '<tr id = "experiment" class="active"><td>' + experiments[i].experimentId + '</td><td>' + experiments[i].experimentTitle + '</td><td>' +
+                    '<button type="button" id = "editE' + i + '" class="btn btn-primary">编辑</button>' +
+                    '<button type="button" id="deleteE' + i + '" style = "margin-left:20px" class="btn btn-danger">删除</button>' +
+                    '</td></tr>';
+                  $("#experimentList" + experiments[i].courseId).find("#experiments").append(tr);
+                  $("#editE" + i).on("click", (obj) => {
+                    editEIndex = obj.currentTarget.id.slice(5, 6);
+
+                    $("#experimentClaim").val(experiments[editEIndex].experimentClaim);
+                    $("#experimentPurpose").val(experiments[editEIndex].experimentPurpose);
+                    $("#experimentTitle").val(experiments[editEIndex].experimentTitle);
+                    $("#experimentAnalysis").val(experiments[editEIndex].experimentAnalysis);
+                    var steps = experiments[editEIndex].experimentSteps;
+                    for (var j = 0; j < steps.length; j++) {
+                      var step = $("#experimentStep").eq(0).clone();
+                      step.find("#stepNum").val(steps[j].stepNum);
+                      step.find("#stepCode").val(steps[j].stepCode);
+                      step.find("#stepName").val(steps[j].stepName);
+                      $("#stepList").append(step);
+                      $('#experimentModal').modal('show');
+                    }
+                    $("#experimentStep").eq(0).remove();
+                  });
+                  $("#deleteE" + i).on("click", (obj) => {
+                    let index = obj.currentTarget.id.slice(7, 8);
+                    if (confirm("确定删除")) {
+                      deleteExperiment(experiments[index].experimentId);
+                    }
+
+                  });
+                }
+              } else {
+                alert(res.msg);
+              }
+            }
+          });
+        },
+        addExperiment = (experiment) => {
+          var url = "";
+          if (editEIndex) {
+            url = "http://129.204.38.10/oe/student/updateExperiment"
+            experiment.experimentId = experiments[editEIndex].experimentId;
+          } else {
+            url = "http://129.204.38.10/oe/student/addExperiment"
+          }
+          $.ajax({
+            url: url,
+            data: JSON.stringify(experiment),
+            method: 'post',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                $("#experimentModal").modal('hide');
+                getExperiments(courseId);
+              } else {
+                alert(res.msg);
+              }
+            }
+          });
+
+        },
+        deleteExperiment = (experimentId) => {
+          var data = { "experimentId": experimentId }
+          $.ajax({
+            url: "http://129.204.38.10/oe/student/deleteExperiment",
+            data: data,
+            method: 'get',
+            contentType: "application/json",
+            headers: header,
+            success: (res) => {
+              if (res.code == 1) {
+                getExperiments(courseId);
+              } else {
+                alert(res.msg);
+              }
+            }
+          });
+        }
+
+
+
+    </script>
+</body>
+
+</html>

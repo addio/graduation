@@ -1,0 +1,25 @@
+<wux-select id="wux-select1" />
+<wux-toptips id="wux-toptips" />
+<view class="head">
+    <wux-search-bar clear controlled placeholder="Search" bind:change="onChange"
+        bind:focus="onFocus" bind:blur="onBlur" bind:confirm="onConfirm" bind:clear="onClear" bind:cancel="onCancel" />
+</view>
+<wux-spin nested spinning="{{ spinning }}" tip="Loading...">
+    <view class="list">
+        <wux-cell-group title="课程">
+            <wux-row>
+                <wux-col span='2' offset="9.5">
+                    <wux-tag color="#108ee9" bind:click="onClick">{{label}}</wux-tag>
+                </wux-col>
+            </wux-row>
+            <view wx:for="{{courses}}" wx:key>
+                <navigator class="wux-hairline--surrounded wux-margin-top--10 wux-margin-left--10 wux-margin-right--10"
+                    url="/pages/courseDetail/courseDetail?courseId={{item.courseId}}&classification={{classification}}">
+                    <wux-cell title="{{item.courseName}}" is-link>
+                        <wux-tag  color="#108ee9">{{item.teacherName}}</wux-tag>
+                    </wux-cell>
+                </navigator>
+            </view>
+        </wux-cell-group>
+    </view>
+</wux-spin>
