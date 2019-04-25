@@ -14,9 +14,9 @@ import com.oe.student.vo.PageVo;
  */
 public interface CourseFacade {
 
-    void addCourse(CourseVo course);
+//    void addCourse(CourseVo course) throws OeException;
 
-    PageVo getCoursesByTeacher(Long teacherId);
+    PageVo getCoursesByTeacher(Long teacherId, Long schoolId) throws OeException;
 
     PageVo getCourses(CourseVo courseVo) throws OeException;
 

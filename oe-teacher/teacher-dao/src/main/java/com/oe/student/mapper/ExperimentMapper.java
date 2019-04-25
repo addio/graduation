@@ -5,7 +5,7 @@ import com.oe.student.entity.Experiment;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author wangwenjie

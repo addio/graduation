@@ -14,7 +14,7 @@ public interface UserFacade {
      *
      * @param code
      */
-    UserVo wxLogin(String code)throws OeException;
+    UserVo wxLogin(String code) throws OeException;
 
     UserVo getUserByUsername(String oeSession) throws OeException;
 

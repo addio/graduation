@@ -1,5 +1,7 @@
 package com.oe.student.facade;
 
+import com.oe.student.exception.OeException;
+import com.oe.student.vo.CourseVo;
 import com.oe.student.vo.TeacherCourseVo;
 
 import java.util.List;
@@ -14,11 +16,14 @@ import java.util.List;
  */
 public interface TeacherCourseFacade {
 
-    void addCourse(TeacherCourseVo teacherCourse);
 
-    void updateCourse(TeacherCourseVo teacherCourse);
+    void addCourse(CourseVo courseVo) throws OeException;
 
-    List<Long> selectTeacherByCourseId(Long courseId);
+    void updateCourse(CourseVo courseVo) throws OeException;
 
-    List<Long> selectCourseByTeacherId(Long teacherId);
+    void deleteByCourseId(String courseId) throws OeException;
+
+    List<TeacherCourseVo> selectTeachersByCourseId(String courseId) throws OeException;
+
+    List<TeacherCourseVo> selectCoursesByTeacherId(String teacherId) throws OeException;
 }

@@ -1,9 +1,14 @@
 package com.oe.student.dao.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.oe.student.dao.TeacherDao;
 import com.oe.student.entity.Teacher;
+import com.oe.student.mapper.TeacherMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,13 +21,29 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TeacherDaoImpl implements TeacherDao {
 
+    @Autowired
+    private TeacherMapper teacherMapper;
+
     @Override
-    public Teacher selectTeacherByUserId(Long userId) {
-        return null;
+    public Teacher selectTeacherByUserId(String userId) {
+        return teacherMapper.selectById(userId);
     }
 
     @Override
-    public void addTeacher(Teacher teacher) {
+    public List<Teacher> getTeacherByName(String teacherName) {
+        LambdaQueryWrapper<Teacher> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(Teacher::getTeacherName, teacherName);
+        return teacherMapper.selectList(wrapper);
+    }
 
+
+    @Override
+    public void addTeacher(Teacher teacher) {
+        teacherMapper.insert(teacher);
+    }
+
+    @Override
+    public void updateTeacher(Teacher teacher) {
+        teacherMapper.updateById(teacher);
     }
 }

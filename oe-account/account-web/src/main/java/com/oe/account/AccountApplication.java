@@ -3,6 +3,7 @@ package com.oe.account;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author wangwj
@@ -10,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan(value = "com.oe.account.mapper")
-public class OeApplication {
+public class AccountApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OeApplication.class);
+        SpringApplication.run(AccountApplication.class);
     }
 }

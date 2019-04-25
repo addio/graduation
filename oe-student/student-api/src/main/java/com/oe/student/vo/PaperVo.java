@@ -36,6 +36,8 @@ public class PaperVo implements Serializable {
 
     private Integer experimentStatus;
 
+    private String args;
+
 
     public String getPaperId() {
         return paperId;
@@ -99,6 +101,14 @@ public class PaperVo implements Serializable {
 
     public void setExperimentFeeling(String experimentFeeling) {
         this.experimentFeeling = experimentFeeling;
+    }
+
+    public String getArgs() {
+        return args;
+    }
+
+    public void setArgs(String args) {
+        this.args = args;
     }
 
     public Integer getExperimentStatus() {

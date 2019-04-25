@@ -27,7 +27,7 @@ public class StudentFacadeImpl implements StudentFacade {
             throw new OeException(ResponseStatus.FAILED.getCode(), "用户id不能为空！");
         }
         Student student = studentService.selectStudentByUserId(userId);
-        if (student == null){
+        if (student == null) {
             throw new OeException(ResponseStatus.FAILED.getCode(), "当前用户未绑定信息！");
         }
         StudentVo vo = new StudentVo();

@@ -19,7 +19,13 @@ public interface TeacherCourseService {
 
     void updateCourse(TeacherCourse teacherCourse);
 
-    List<Long> selectTeacherByCourseId(Long courseId);
+    void deleteByCourseId(Long courseId);
 
-    List<Long> selectCourseByTeacherId(Long teacherId);
+    List<TeacherCourse> selectTeacherByCourseId(Long courseId);
+
+    List<TeacherCourse> selectCourseByTeacherId(Long teacherId);
+
+    TeacherCourse getTeacherCourse(TeacherCourse teacherCourse);
+
+    List<TeacherCourse> getTeacherByCourseId(Long courseId);
 }

@@ -18,4 +18,10 @@ public interface ExperimentDao {
     void addExperiment(Experiment experiment);
 
     void updateExperiment(Experiment experiment);
+
+    void deleteExperimentByCourseId(Long courseId);
+
+    void deleteById(Long id);
+
+    Experiment getExperimentById(Long id);
 }

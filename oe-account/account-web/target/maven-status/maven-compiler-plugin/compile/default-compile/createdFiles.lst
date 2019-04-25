@@ -1,4 +1,0 @@
-com\oe\account\controller\LoginController.class
-com\oe\account\OeApplication.class
-com\oe\account\config\shiro\ShiroConfig.class
-com\oe\account\config\realm\MyRealm.class

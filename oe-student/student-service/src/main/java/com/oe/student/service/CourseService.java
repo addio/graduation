@@ -13,9 +13,11 @@ import com.oe.student.entity.Course;
  */
 public interface CourseService {
 
-    void addCourse(Course course);
+    Long addCourse(Course course);
 
     IPage<Course> selectCoursesByTeacher(Long teacherId);
+
+    void deleteByCourseId(Long courseId);
 
     IPage<Course> getCourses(Course course, Integer current, Integer size);
 

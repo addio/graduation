@@ -16,10 +16,11 @@ import org.springframework.stereotype.Service;
  * @since 2019-04-01
  */
 @Service
-public class PaperServiceImpl  implements PaperService {
+public class PaperServiceImpl implements PaperService {
 
     @Autowired
     private PaperDao paperDao;
+
     @Override
     public void addPaper(Paper paper) {
         paperDao.addPaper(paper);
@@ -31,7 +32,13 @@ public class PaperServiceImpl  implements PaperService {
     }
 
     @Override
+    public void deletePaper(Long paperId) {
+        paperDao.deletePaper(paperId);
+    }
+
+
+    @Override
     public Paper getPaper(Long studentId, Long experimentId) {
-        return paperDao.getPaper(studentId,experimentId);
+        return paperDao.getPaper(studentId, experimentId);
     }
 }

@@ -51,7 +51,7 @@ public class StudentController {
         try {
 
             StudentVo studentVo = studentFacade.getStudentByUserId((String) request.getAttribute("userId"));
-            response.setBody((JSONObject)JSONObject.toJSON(studentVo));
+            response.setBody((JSONObject) JSONObject.toJSON(studentVo));
 
         } catch (OeException e) {
             return OeResponseBuilder.buildFailed(e);

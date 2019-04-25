@@ -10,13 +10,13 @@ import com.oe.student.vo.OeResponse;
  */
 public class OeResponseBuilder {
 
-    public static OeResponse buildSuccess(){
+    public static OeResponse buildSuccess() {
         OeResponse response = new OeResponse();
         response.setCode(ResponseStatus.SUCCSEE.getCode());
         return response;
     }
 
-    public static OeResponse buildFailed(Exception e){
+    public static OeResponse buildFailed(Exception e) {
         OeResponse response = new OeResponse();
         response.setCode(ResponseStatus.FAILED.getCode());
         response.setMsg(e.getMessage());

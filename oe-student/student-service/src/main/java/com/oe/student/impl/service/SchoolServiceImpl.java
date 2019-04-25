@@ -24,6 +24,6 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public IPage<School> getSchools(School school, Integer current, Integer size) {
-        return schoolDao.getSchools(school,current,size);
+        return schoolDao.getSchools(school, current, size);
     }
 }

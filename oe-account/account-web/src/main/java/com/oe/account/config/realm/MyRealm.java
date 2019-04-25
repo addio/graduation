@@ -1,7 +1,8 @@
 package com.oe.account.config.realm;
 
-import com.oe.account.entity.User;
-import com.oe.account.impl.service.UserServiceImpl;
+import com.oe.account.exception.OeException;
+import com.oe.account.facade.UserFacade;
+import com.oe.account.vo.UserVo;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -26,7 +27,7 @@ public class MyRealm extends AuthorizingRealm {
     private final static Logger LOGGER = LoggerFactory.getLogger(MyRealm.class);
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserFacade userFacade;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -35,7 +36,7 @@ public class MyRealm extends AuthorizingRealm {
         final SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
         try {
-            User user = userService.getUserByUsername(username);
+            UserVo user = userFacade.getUserByUsername(username);
             info.addRole(user.getRole().getRoleName());
             user.getpList().forEach((e) -> info.addStringPermission(e.getPermissionName()));
         } catch (Exception e) {
@@ -49,17 +50,23 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         LOGGER.info("认证");
         String username = (String) authenticationToken.getPrincipal();
-        User user = userService.getUserByUsername(username);
+        UserVo user = null;
+
+        try {
+            user = userFacade.getUserByUsername(username);
+        } catch (OeException e) {
+            e.printStackTrace();
+        }
+
         if (user == null) {
             throw new UnknownAccountException();
         }
 
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getUserName(),
+        return new SimpleAuthenticationInfo(
+                user.getUsername(),
                 user.getPassword(),
                 getName()
         );
 
-        return authenticationInfo;
     }
 }

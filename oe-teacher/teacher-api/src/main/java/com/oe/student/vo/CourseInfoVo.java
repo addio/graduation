@@ -12,9 +12,10 @@ public class CourseInfoVo implements Vo {
 
     private String courseInfo;
 
-    private Integer collect ;
+    private Integer collect;
 
     private Integer join;
+
     public String getCourseName() {
         return courseName;
     }

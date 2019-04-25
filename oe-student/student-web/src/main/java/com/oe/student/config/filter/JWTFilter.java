@@ -42,13 +42,14 @@ public class JWTFilter extends OncePerRequestFilter {
         UsernamePasswordAuthenticationToken authentication = null;
         try {
             authentication = getAuthentication(request);
-            request.setAttribute("userId",((LinkedHashMap<String, Object>)authentication.getPrincipal()).get("username"));
+            request.setAttribute("userId", ((LinkedHashMap<String, Object>) authentication.getPrincipal()).get("username"));
             isFilter = true;
         } catch (Exception e) {
             OutputStream out = null;
             try {
                 out = response.getOutputStream();
                 PrintWriter writer = new PrintWriter(out);
+                e.printStackTrace();
                 OeResponse res = OeResponseBuilder.buildFailed(e);
                 writer.write(JSONObject.toJSONString(res));
                 writer.flush();

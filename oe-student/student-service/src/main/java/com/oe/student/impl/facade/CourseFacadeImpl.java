@@ -2,10 +2,12 @@ package com.oe.student.impl.facade;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.oe.student.entity.Course;
+import com.oe.student.entity.TeacherCourse;
 import com.oe.student.enums.ResponseStatus;
 import com.oe.student.exception.OeException;
 import com.oe.student.facade.CourseFacade;
 import com.oe.student.service.CourseService;
+import com.oe.student.service.TeacherCourseService;
 import com.oe.student.vo.CourseVo;
 import com.oe.student.vo.PageVo;
 import org.apache.commons.lang3.StringUtils;
@@ -24,13 +26,16 @@ public class CourseFacadeImpl implements CourseFacade {
     @Autowired
     private CourseService courseService;
 
-    @Override
-    public void addCourse(CourseVo course) {
+    @Autowired
+    private TeacherCourseService teacherCourseService;
 
-    }
 
     @Override
-    public PageVo getCoursesByTeacher(Long teacherId) {
+    public PageVo getCoursesByTeacher(Long teacherId, Long schoolId) throws OeException {
+        if (schoolId == null || teacherId == null) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), "学校id或者教师id不能为空");
+        }
+
         return null;
     }
 
@@ -58,12 +63,14 @@ public class CourseFacadeImpl implements CourseFacade {
             vo.setCourseName(e.getCourseName());
             vo.setCourseImage(e.getCourseImage());
             vo.setCourseInfo(e.getCourseInfo());
+            List<TeacherCourse> nList = teacherCourseService.getTeacherByCourseId(e.getCourseId());
+            vo.setTeacherId(nList.get(0).getTeacherId().toString());
+            vo.setTeacherName(nList.get(0).getTeacherName());
             records.add(vo);
         });
         pageVo.setRecords(records);
         return pageVo;
     }
-
 
 
     @Override

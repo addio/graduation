@@ -6,7 +6,7 @@ import com.oe.student.entity.Experiment;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie
@@ -14,4 +14,14 @@ import com.oe.student.entity.Experiment;
  */
 public interface ExperimentService {
     IPage<Experiment> getExperimentsByCourseId(Long courseId, Integer current, Integer size);
+
+    void deleteExperimentByCourseId(Long courseId);
+
+    void addExperiment(Experiment experiment);
+
+    void updateExperiment(Experiment experiment);
+
+    void deleteExperiment(Long experimentId);
+
+    Experiment getExperimentById(Long experimentId);
 }

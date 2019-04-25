@@ -9,20 +9,20 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class CourseServiceImpl  implements CourseService {
+public class CourseServiceImpl implements CourseService {
     @Autowired
     private CourseDao courseDao;
 
     @Override
-    public void addCourse(Course course) {
-
+    public Long addCourse(Course course) {
+        return courseDao.addCourse(course);
     }
 
     @Override
@@ -31,8 +31,13 @@ public class CourseServiceImpl  implements CourseService {
     }
 
     @Override
-    public IPage<Course> getCourses(Course course,Integer current, Integer size) {
-        return courseDao.selectCourses(course,current, size);
+    public void deleteByCourseId(Long courseId) {
+        courseDao.deleteByCourseId(courseId);
+    }
+
+    @Override
+    public IPage<Course> getCourses(Course course, Integer current, Integer size) {
+        return courseDao.selectCourses(course, current, size);
     }
 
     @Override
@@ -42,6 +47,6 @@ public class CourseServiceImpl  implements CourseService {
 
     @Override
     public void updateCourse(Course course) {
-
+        courseDao.updateCourse(course);
     }
 }

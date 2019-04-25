@@ -1,9 +1,13 @@
 package com.oe.student.impl.service;
 
 
+import com.oe.student.dao.TeacherDao;
 import com.oe.student.entity.Teacher;
 import com.oe.student.service.TeacherService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,13 +20,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
+    @Autowired
+    private TeacherDao teacherDao;
+
     @Override
-    public Teacher selectTeacherByUserId(Long userId) {
-        return null;
+    public List<Teacher> getTeacherByName(String teacherName) {
+        return teacherDao.getTeacherByName(teacherName);
     }
+
+    @Override
+    public Teacher selectTeacherByUserId(String userId) {
+        return teacherDao.selectTeacherByUserId(userId);
+    }
+
+    @Override
+    public void updateTeacher(Teacher teacher) {
+        teacherDao.updateTeacher(teacher);
+    }
+
 
     @Override
     public void addTeacher(Teacher teacher) {
 
+        teacherDao.addTeacher(teacher);
     }
 }

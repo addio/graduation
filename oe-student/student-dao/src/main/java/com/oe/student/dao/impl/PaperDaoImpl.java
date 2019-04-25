@@ -34,6 +34,11 @@ public class PaperDaoImpl implements PaperDao {
     }
 
     @Override
+    public void deletePaper(Long paperId) {
+        paperMapper.deleteById(paperId);
+    }
+
+    @Override
     public Paper getPaper(Long studentId, Long experimentId) {
         LambdaQueryWrapper<Paper> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Paper::getExperimentId, experimentId)

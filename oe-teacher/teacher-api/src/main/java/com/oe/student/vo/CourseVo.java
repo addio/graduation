@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -42,6 +42,7 @@ public class CourseVo implements Serializable {
     public void setSize(Integer size) {
         this.size = size;
     }
+
     public String getSchoolId() {
         return schoolId;
     }

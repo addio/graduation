@@ -3,6 +3,8 @@ package com.oe.student.facade;
 import com.oe.student.exception.OeException;
 import com.oe.student.vo.PaperVo;
 
+import java.util.Map;
+
 /**
  * <p>
  * 学生完成的内容 服务类
@@ -18,4 +20,5 @@ public interface PaperFacade {
 
     PaperVo getPaper(String studentId, String experimentId) throws OeException;
 
+    Map<String, String> executeCode(PaperVo paperVo, String realPath) throws OeException;
 }

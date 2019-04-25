@@ -29,7 +29,7 @@ public class PaperFacadeImpl implements PaperFacade {
 
     @Override
     public void updatePaper(PaperVo paperVo) throws OeException {
-        if (StringUtils.isBlank(paperVo.getPaperId())){
+        if (StringUtils.isBlank(paperVo.getPaperId())) {
             throw new OeException(ResponseStatus.FAILED.getCode(), "学生未参加课程");
         }
         Paper paper = new Paper();
@@ -46,7 +46,7 @@ public class PaperFacadeImpl implements PaperFacade {
     @Override
     public PaperVo getPaper(String studentId, String experimentId) throws OeException {
         check(studentId, experimentId);
-        Paper paper = paperService.getPaper(Long.parseLong(studentId),Long.parseLong(experimentId));
+        Paper paper = paperService.getPaper(Long.parseLong(studentId), Long.parseLong(experimentId));
         PaperVo paperVo = new PaperVo();
         paperVo.setExperimentClaim(paper.getExperimentClaim());
         paperVo.setExperimentFeeling(paper.getExperimentFeeling());

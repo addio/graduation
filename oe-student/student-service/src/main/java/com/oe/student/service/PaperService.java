@@ -17,5 +17,7 @@ public interface PaperService {
 
     void updatePaper(Paper paper);
 
+    void deletePaper(Long paperId);
+
     Paper getPaper(Long studentId, Long experimentId);
 }

@@ -26,13 +26,19 @@ public class CourseDaoImpl implements CourseDao {
 
 
     @Override
-    public void addCourse(Course course) {
-
+    public Long addCourse(Course course) {
+        courseMapper.insert(course);
+        return course.getCourseId();
     }
 
     @Override
     public IPage<Course> selectCoursesByTeacher(Long teacherId) {
         return null;
+    }
+
+    @Override
+    public void deleteByCourseId(Long courseId) {
+        courseMapper.deleteById(courseId);
     }
 
     @Override
@@ -56,6 +62,6 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public void updateCourse(Course course) {
-
+        courseMapper.updateById(course);
     }
 }

@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class CourseServiceImpl  implements CourseService {
+public class CourseServiceImpl implements CourseService {
     @Autowired
     private CourseDao courseDao;
 
@@ -31,8 +31,8 @@ public class CourseServiceImpl  implements CourseService {
     }
 
     @Override
-    public IPage<Course> getCourses(Course course,Integer current, Integer size) {
-        return courseDao.selectCourses(course,current, size);
+    public IPage<Course> getCourses(Course course, Integer current, Integer size) {
+        return courseDao.selectCourses(course, current, size);
     }
 
     @Override

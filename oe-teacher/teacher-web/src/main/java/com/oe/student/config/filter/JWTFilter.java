@@ -42,7 +42,7 @@ public class JWTFilter extends OncePerRequestFilter {
         UsernamePasswordAuthenticationToken authentication = null;
         try {
             authentication = getAuthentication(request);
-            request.setAttribute("userId",((LinkedHashMap<String, Object>)authentication.getPrincipal()).get("username"));
+            request.setAttribute("userId", ((LinkedHashMap<String, Object>) authentication.getPrincipal()).get("username"));
             isFilter = true;
         } catch (Exception e) {
             OutputStream out = null;

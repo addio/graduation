@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -51,6 +51,7 @@ public class StudentVo implements Serializable {
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
     }
+
     private String avatarUrl;
 
     public String getAvatarUrl() {
@@ -60,6 +61,7 @@ public class StudentVo implements Serializable {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+
     private int sex = 1;
 
     public String getUserId() {

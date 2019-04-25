@@ -1,10 +1,12 @@
 package com.oe.student.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -16,6 +18,7 @@ public class Student implements Serializable {
 
     private Long studentId;
 
+    @TableId
     private String userId;
 
     private Long schoolId;
@@ -42,6 +45,7 @@ public class Student implements Serializable {
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
     }
+
     public Long getStudentId() {
         return studentId;
     }

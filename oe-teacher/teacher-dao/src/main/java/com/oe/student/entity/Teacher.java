@@ -23,6 +23,7 @@ public class Teacher implements Serializable {
     public Long getSchoolId() {
         return schoolId;
     }
+
     public Long getTeacherId() {
         return teacherId;
     }

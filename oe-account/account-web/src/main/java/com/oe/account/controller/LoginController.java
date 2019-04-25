@@ -10,11 +10,10 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,13 +21,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author wangwj
  * @data 2019/3/29
  */
-@Controller
+@RestController
 public class LoginController {
 
     @Autowired
     private UserFacade userFacade;
 
-    @ResponseBody
     @GetMapping("/wxLogin")
     public OeResponse wxLogin(String code, HttpServletResponse res) {
         OeResponse response = OeResponseBuilder.buildSuccess();
@@ -43,18 +41,18 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public OeResponse login(String userName, String password, HttpServletResponse res) {
+    public OeResponse login(String username, String password, HttpServletResponse res) {
         OeResponse response = OeResponseBuilder.buildSuccess();
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
-        subject.login(token);
+        UserVo userVo;
         try {
-            UserVo userVo = userFacade.getUserByUsername(userName);
-            res.addHeader("Authorization", "Bearer " + JwtBuilder.buildJwtToken(userVo));
+            userVo = userFacade.getUserByUsername(username);
         } catch (OeException e) {
             return OeResponseBuilder.buildFailed(e);
         }
-
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        subject.login(token);
+        res.addHeader("Authorization", "Bearer " + JwtBuilder.buildJwtToken(userVo));
         return response;
     }
 

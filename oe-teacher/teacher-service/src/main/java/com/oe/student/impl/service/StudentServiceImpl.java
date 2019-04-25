@@ -9,18 +9,19 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class StudentServiceImpl  implements StudentService {
+public class StudentServiceImpl implements StudentService {
 
 
     @Autowired
     private StudentDao studentDao;
+
     @Override
     public Student selectStudentByUserId(String userId) {
         return studentDao.selectStudentByUserId(userId);

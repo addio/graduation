@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
  * @author wangwj
  * @data 2019/3/29
  */
-public class OeResponse implements Vo{
+public class OeResponse implements Vo {
 
     private int code;
 

@@ -15,5 +15,7 @@ public interface PaperDao {
 
     void updatePaper(Paper paper);
 
+    void deletePaper(Long paperId);
+
     Paper getPaper(Long userId, Long experimentId);
 }

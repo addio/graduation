@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie

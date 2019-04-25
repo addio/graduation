@@ -2,8 +2,6 @@ package com.oe.account.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.oe.account.dao.UserDao;
-import com.oe.account.entity.Permission;
-import com.oe.account.entity.RolePermission;
 import com.oe.account.entity.User;
 import com.oe.account.mapper.PermissionMapper;
 import com.oe.account.mapper.RoleMapper;
@@ -11,9 +9,6 @@ import com.oe.account.mapper.RolePerMapper;
 import com.oe.account.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author wangwj
@@ -59,11 +54,6 @@ public class UserDaoImpl implements UserDao {
     private User getRole(User user) {
         if (user != null) {
             user.setRole(roleMapper.selectById(user.getRoleId()));
-            LambdaQueryWrapper<RolePermission> pWrapper = new LambdaQueryWrapper<>();
-            pWrapper.eq(RolePermission::getRole_id, user.getRoleId());
-            List<RolePermission> list = rolePerMapper.selectList(pWrapper);
-            List<Permission> permissions = permissionMapper.selectBatchIds(list.stream().map(RolePermission::getPermissionId).collect(Collectors.toList()));
-            user.setpList(permissions);
             return user;
         }
         return null;

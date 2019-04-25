@@ -1,5 +1,7 @@
 package com.oe.student.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 
 /**
@@ -16,9 +18,33 @@ public class Teacher implements Serializable {
 
     private Long teacherId;
 
-    private Long userId;
+    @TableId
+    private String userId;
 
+    private String teacherName;
     private Long schoolId;
+
+    private String schoolName;
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public void setSchoolId(Long schoolId) {
+        this.schoolId = schoolId;
+    }
 
     public Long getSchoolId() {
         return schoolId;
@@ -31,11 +57,11 @@ public class Teacher implements Serializable {
         this.teacherId = teacherId;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 }

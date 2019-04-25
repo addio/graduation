@@ -1,5 +1,0 @@
-com\oe\account\util\HttpUtils.class
-com\oe\account\service\UserService.class
-com\oe\account\impl\facade\UserFacadeImpl.class
-com\oe\account\impl\service\UserServiceImpl.class
-com\oe\account\util\DecryptUserInfo.class

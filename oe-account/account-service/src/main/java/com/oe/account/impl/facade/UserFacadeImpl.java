@@ -2,9 +2,10 @@ package com.oe.account.impl.facade;
 
 import com.oe.account.entity.User;
 import com.oe.account.enums.ResponseStatus;
+import com.oe.account.enums.RoleEnum;
 import com.oe.account.exception.OeException;
 import com.oe.account.facade.UserFacade;
-import com.oe.account.impl.service.UserServiceImpl;
+import com.oe.account.service.UserService;
 import com.oe.account.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,12 +19,12 @@ import org.springframework.util.StringUtils;
 public class UserFacadeImpl implements UserFacade {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
     @Override
     public UserVo wxLogin(String code) throws OeException {
 
-        if (StringUtils.isEmpty(code)){
-            throw new OeException(ResponseStatus.FAILED.getCode(),"code为空");
+        if (StringUtils.isEmpty(code)) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), "code为空");
         }
         User user = userService.wxLogin(code);
         UserVo userVo = new UserVo();
@@ -42,24 +43,23 @@ public class UserFacadeImpl implements UserFacade {
         }
         userVo.setUsername(username);
         userVo.setPassword(user.getPassword());
-        userVo.setpList(user.getpList());
         userVo.setRole(user.getRole());
         return userVo;
     }
 
     @Override
     public void register(UserVo userVo) throws OeException {
-        if (StringUtils.isEmpty(userVo.getUsername())||StringUtils.isEmpty(userVo.getPassword())){
-            throw new OeException(ResponseStatus.FAILED.getCode(),"用户名或密码不能为空");
+        if (StringUtils.isEmpty(userVo.getUsername()) || StringUtils.isEmpty(userVo.getPassword())) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), "用户名或密码不能为空");
         }
         User user = userService.getUserByUsername(userVo.getUsername());
-        if (user!=null){
-            throw new OeException(ResponseStatus.FAILED.getCode(),"当前用户名已经被使用，换一个试试");
+        if (user != null) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), "当前用户名已经被使用，换一个试试");
         }
         User newUser = new User();
         newUser.setPassword(userVo.getPassword());
         newUser.setUserName(userVo.getUsername());
-        newUser.setRoleId(userVo.getRole().getId());
+        newUser.setRoleId(RoleEnum.TEACHER.getRoleId());
         userService.register(newUser);
     }
 }

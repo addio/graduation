@@ -1,10 +1,11 @@
 package com.oe.student.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -25,9 +26,11 @@ public class ExperimentVo implements Serializable {
      */
     private String experimentClaim;
 
+    private String experimentAnalysis;
+
     private String experimentPurpose;
 
-    private String experimentSteps;
+    private List<StepVo> experimentSteps;
 
     private int experimentStatus;
 
@@ -83,11 +86,19 @@ public class ExperimentVo implements Serializable {
         this.experimentPurpose = experimentPurpose;
     }
 
-    public String getExperimentSteps() {
+    public List<StepVo> getExperimentSteps() {
         return experimentSteps;
     }
 
-    public void setExperimentSteps(String experimentSteps) {
+    public String getExperimentAnalysis() {
+        return experimentAnalysis;
+    }
+
+    public void setExperimentAnalysis(String experimentAnalysis) {
+        this.experimentAnalysis = experimentAnalysis;
+    }
+
+    public void setExperimentSteps(List<StepVo> experimentSteps) {
         this.experimentSteps = experimentSteps;
     }
 }

@@ -5,7 +5,7 @@ import com.oe.student.entity.Student;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie

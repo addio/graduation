@@ -2,6 +2,8 @@ package com.oe.student.dao;
 
 import com.oe.student.entity.Teacher;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -11,7 +13,11 @@ import com.oe.student.entity.Teacher;
  * @since 2019-04-01
  */
 public interface TeacherDao {
-    Teacher selectTeacherByUserId(Long userId);
+    Teacher selectTeacherByUserId(String userId);
+
+    List<Teacher> getTeacherByName(String teacherName);
 
     void addTeacher(Teacher teacher);
+
+    void updateTeacher(Teacher teacher);
 }

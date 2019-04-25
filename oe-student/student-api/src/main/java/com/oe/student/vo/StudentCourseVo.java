@@ -26,7 +26,7 @@ public class StudentCourseVo implements Serializable {
     private Integer size = 12;
     private Integer collect;
 
-    private Integer join ;
+    private Integer join;
 
     public Integer getCollect() {
         return collect;

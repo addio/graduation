@@ -26,10 +26,13 @@
     </changeSet>
     <changeSet id="201904101045" author="wangwenjie">
         <createTable tableName="student">
-            <column name="student_id" type="bigint">
+            <column name="user_id" type="varchar(100)">
+
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="user_id" type="varchar(100)"/>
+            <column name="student_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
             <column name="school_id" type="bigint"/>
             <column name="student_name" type="varchar(100)"/>
             <column name="school_name" type="varchar(100)"/>
@@ -40,10 +43,12 @@
     </changeSet>
     <changeSet id="201904101046" author="wangwenjie">
         <createTable tableName="teacher">
-            <column name="teacher_id" type="bigint">
+            <column name="user_id" type="varchar(100)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="user_id" type="bigint"/>
+            <column name="teacher_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
             <column name="school_id" type="bigint"/>
         </createTable>
     </changeSet>
@@ -91,5 +96,32 @@
             <column name="experiment_feeling" type="text"/>
             <column name="experiment_status" type="tinyint"/>
         </createTable>
+    </changeSet>
+    <changeSet id="201904151601" author="wangwenjie">
+        <addColumn tableName="teacher_course">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course_name" type="varchar(100)"/>
+            <column name="teacher_name" type="varchar(100)"/>
+        </addColumn>
+        <addColumn tableName="teacher">
+            <column name="school_name" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="201904101311" author="wangwenjie">
+        <addColumn tableName="teacher">
+            <column name="teacher_name" type="varchar(100)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="201904171013" author="wangwenjie">
+        <addColumn tableName="experiment">
+            <column name="status" type="tinyint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="201904171014" author="wangwenjie">
+        <addColumn tableName="experiment">
+            <column name="experiment_analysis" type="text"/>
+        </addColumn>
     </changeSet>
 </databaseChangeLog>

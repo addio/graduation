@@ -5,7 +5,7 @@ import com.oe.student.entity.Course;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie
@@ -15,8 +15,11 @@ public interface CourseDao {
     void addCourse(Course course);
 
     IPage<Course> selectCoursesByTeacher(Long teacherId);
-    IPage<Course> selectCourses(Course course,Integer current, Integer size);
+
+    IPage<Course> selectCourses(Course course, Integer current, Integer size);
+
     Course selectCourseInfo(Long courseId);
+
     void updateCourse(Course course);
 
 }

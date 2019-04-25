@@ -9,17 +9,18 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class ExperimentServiceImpl  implements ExperimentService {
+public class ExperimentServiceImpl implements ExperimentService {
 
     @Autowired
     private ExperimentDao experimentDao;
+
     @Override
     public IPage<Experiment> getExperimentsByCourseId(Long courseId, Integer current, Integer size) {
         return experimentDao.getExperimentsByCourseId(courseId, current, size);

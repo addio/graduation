@@ -63,13 +63,13 @@ public class StudentCourseFacadeImpl implements StudentCourseFacade {
         if (sc == null) {
             studentCourseService.addCourse(set);
             if (join != null && join == 1) {
-                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), false,true);
+                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), false, true);
             }
         } else {
             if (join != null && join == 1) {
-                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), false,false);
+                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), false, false);
             } else if (join != null && join == 0) {
-                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), true,false);
+                updatePapers(studentCourseVo.getCourseId(), studentCourseVo.getStudentId(), true, false);
             }
             studentCourseService.updateCourse(set);
         }
@@ -146,7 +146,7 @@ public class StudentCourseFacadeImpl implements StudentCourseFacade {
         return vo;
     }
 
-    private void updatePapers(String courseId, String studentId, boolean delete,boolean firstJoin) {
+    private void updatePapers(String courseId, String studentId, boolean delete, boolean firstJoin) {
         IPage<Experiment> page = experimentService.getExperimentsByCourseId(Long.parseLong(courseId), 1, 65536);
         if (page.getTotal() != 0) {
             List<Experiment> experimentList = page.getRecords();
@@ -154,7 +154,7 @@ public class StudentCourseFacadeImpl implements StudentCourseFacade {
                 Paper paper = new Paper();
                 paper.setStudentId(Long.parseLong(studentId));
                 paper.setExperimentId(e.getExperimentId());
-                paper.setExperimentTitle(e.getExperimentClaim());
+                paper.setExperimentTitle(e.getExperimentTitle());
                 paper.setExperimentClaim(e.getExperimentClaim());
                 paper.setExperimentPurpose(e.getExperimentPurpose());
                 paper.setExperimentSteps(e.getExperimentSteps());
@@ -165,7 +165,7 @@ public class StudentCourseFacadeImpl implements StudentCourseFacade {
                 } else {
                     if (firstJoin) {
                         paperService.addPaper(paper);
-                    }else {
+                    } else {
                         paper.setExperimentStatus(0);
                         paperService.updatePaper(paper);
                     }

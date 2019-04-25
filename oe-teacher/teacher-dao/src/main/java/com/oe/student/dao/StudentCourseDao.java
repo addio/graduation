@@ -5,7 +5,7 @@ import com.oe.student.entity.StudentCourse;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie
@@ -20,5 +20,5 @@ public interface StudentCourseDao {
 
     IPage<StudentCourse> selectStudentsByCourseId(Long courseId);
 
-    IPage<StudentCourse> selectCoursesByStudent(StudentCourse sc,Integer current,Integer size);
+    IPage<StudentCourse> selectCoursesByStudent(StudentCourse sc, Integer current, Integer size);
 }

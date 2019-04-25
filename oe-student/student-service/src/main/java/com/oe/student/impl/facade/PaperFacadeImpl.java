@@ -6,11 +6,14 @@ import com.oe.student.enums.ResponseStatus;
 import com.oe.student.exception.OeException;
 import com.oe.student.facade.PaperFacade;
 import com.oe.student.service.PaperService;
+import com.oe.student.service.PythonExecuter;
 import com.oe.student.vo.PaperVo;
 import com.oe.student.vo.StepVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author wangwj
@@ -21,6 +24,8 @@ public class PaperFacadeImpl implements PaperFacade {
 
     @Autowired
     private PaperService paperService;
+    @Autowired
+    private PythonExecuter pythonExecuter;
 
     @Override
     public void addPaper(PaperVo paperVo) throws OeException {
@@ -29,7 +34,7 @@ public class PaperFacadeImpl implements PaperFacade {
 
     @Override
     public void updatePaper(PaperVo paperVo) throws OeException {
-        if (StringUtils.isBlank(paperVo.getPaperId())){
+        if (StringUtils.isBlank(paperVo.getPaperId())) {
             throw new OeException(ResponseStatus.FAILED.getCode(), "学生未参加课程");
         }
         Paper paper = new Paper();
@@ -46,7 +51,7 @@ public class PaperFacadeImpl implements PaperFacade {
     @Override
     public PaperVo getPaper(String studentId, String experimentId) throws OeException {
         check(studentId, experimentId);
-        Paper paper = paperService.getPaper(Long.parseLong(studentId),Long.parseLong(experimentId));
+        Paper paper = paperService.getPaper(Long.parseLong(studentId), Long.parseLong(experimentId));
         PaperVo paperVo = new PaperVo();
         paperVo.setExperimentClaim(paper.getExperimentClaim());
         paperVo.setExperimentFeeling(paper.getExperimentFeeling());
@@ -68,5 +73,22 @@ public class PaperFacadeImpl implements PaperFacade {
         if (paper == null) {
             throw new OeException(ResponseStatus.FAILED.getCode(), "学生未参加课程");
         }
+    }
+
+    @Override
+    public Map<String, String> executeCode(PaperVo paperVo, String realPath) throws OeException {
+        if (StringUtils.isAnyBlank(paperVo.getExperimentId(), paperVo.getStudentId())) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), "学生id或者实验id不能为空");
+        }
+        Map<String, String> result = pythonExecuter
+                .executePython(paperVo.getExperimentSteps(),
+                        paperVo.getStudentId(),
+                        paperVo.getExperimentId(),
+                        realPath,
+                        paperVo.getArgs());
+        if (result.get("error") != null) {
+            throw new OeException(ResponseStatus.FAILED.getCode(), result.get("error"));
+        }
+        return result;
     }
 }

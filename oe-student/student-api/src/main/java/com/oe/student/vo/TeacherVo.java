@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -20,9 +20,28 @@ public class TeacherVo implements Serializable {
 
     private String schoolId;
 
+    private String schoolName;
+
+    private String teacherName;
     private Integer current = 1;
 
     private Integer size = 12;
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
 
     public Integer getCurrent() {
         return current;

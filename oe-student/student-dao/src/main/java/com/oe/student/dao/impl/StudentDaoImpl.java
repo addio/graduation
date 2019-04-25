@@ -36,8 +36,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void updateStudent(Student student) {
-        LambdaQueryWrapper<Student> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Student::getUserId, student.getUserId());
-        studentMapper.update(student, wrapper);
+
+        studentMapper.updateById(student);
     }
 }

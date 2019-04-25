@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public JWTFilter jwtFilter(){
+    public JWTFilter jwtFilter() {
         return new JWTFilter();
     }
 

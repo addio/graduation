@@ -65,7 +65,6 @@ public class CourseFacadeImpl implements CourseFacade {
     }
 
 
-
     @Override
     public void updateCourse(CourseVo course) {
 

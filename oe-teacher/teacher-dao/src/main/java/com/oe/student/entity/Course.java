@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author wangwenjie
@@ -26,7 +26,6 @@ public class Course implements Serializable {
     private String courseInfo;
 
     private Long schoolId;
-
 
 
     public Long getSchoolId() {

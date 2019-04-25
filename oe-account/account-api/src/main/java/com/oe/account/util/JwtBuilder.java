@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class JwtBuilder {
 
-    public static String buildJwtToken(UserVo userVo){
+    public static String buildJwtToken(UserVo userVo) {
         Date now = new Date(System.currentTimeMillis());
         Date expiration = new Date(now.getTime() + 86400000);
         return Jwts.builder()

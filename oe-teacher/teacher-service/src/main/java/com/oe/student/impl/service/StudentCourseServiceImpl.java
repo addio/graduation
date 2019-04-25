@@ -12,14 +12,14 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class StudentCourseServiceImpl  implements StudentCourseService {
+public class StudentCourseServiceImpl implements StudentCourseService {
     @Autowired
     private StudentCourseDao studentCourseDao;
 
@@ -35,9 +35,10 @@ public class StudentCourseServiceImpl  implements StudentCourseService {
     }
 
     @Override
-    public StudentCourse selectStudentCourse(StudentCourse studentCourse){
+    public StudentCourse selectStudentCourse(StudentCourse studentCourse) {
         return studentCourseDao.selectStudentCourse(studentCourse);
     }
+
     @Override
     public List<Long> selectStudentsByCourseId(Long courseId) {
         return null;
@@ -46,7 +47,7 @@ public class StudentCourseServiceImpl  implements StudentCourseService {
     @Override
     public IPage<StudentCourse> getCoursesByStudent(StudentCourse sc, Integer current, Integer size) {
 
-        return studentCourseDao.selectCoursesByStudent(sc,current,size);
+        return studentCourseDao.selectCoursesByStudent(sc, current, size);
     }
 
 

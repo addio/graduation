@@ -6,7 +6,7 @@ import com.oe.student.entity.School;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie
@@ -14,5 +14,5 @@ import com.oe.student.entity.School;
  */
 public interface SchoolService {
 
-    IPage<School> getSchools(School school,Integer current, Integer size);
+    IPage<School> getSchools(School school, Integer current, Integer size);
 }

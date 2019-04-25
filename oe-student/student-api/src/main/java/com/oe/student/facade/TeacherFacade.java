@@ -1,6 +1,9 @@
 package com.oe.student.facade;
 
+import com.oe.student.exception.OeException;
 import com.oe.student.vo.TeacherVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,8 +14,11 @@ import com.oe.student.vo.TeacherVo;
  * @since 2019-04-01
  */
 public interface TeacherFacade {
+    List<TeacherVo> getTeacherByName(String teacherName);
 
-    TeacherVo selectTeacherByUserId(Long userId);
+    TeacherVo selectTeacherByUserId(String userId) throws OeException;
 
-    void addTeacher(TeacherVo teacher);
+    void updateTeacher(TeacherVo teacher) throws OeException;
+
+    void addTeacher(TeacherVo teacher) throws OeException;
 }

@@ -13,7 +13,6 @@ import java.util.List;
 public class UserVo implements Vo {
 
 
-
     private String username;
 
     private String password;

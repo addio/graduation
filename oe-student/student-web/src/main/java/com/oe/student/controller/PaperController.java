@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+
 /**
  * <p>
  * 学生完成的内容 前端控制器
@@ -46,6 +49,19 @@ public class PaperController {
         OeResponse response = OeResponseBuilder.buildSuccess();
         try {
             paperFacade.updatePaper(paperVo);
+        } catch (OeException e) {
+            return OeResponseBuilder.buildFailed(e);
+        }
+        return response;
+    }
+
+    @PostMapping("/executeCode")
+    public OeResponse executeCode(@RequestBody PaperVo paperVo, HttpServletRequest request) {
+        OeResponse response = OeResponseBuilder.buildSuccess();
+        try {
+            String realPath = request.getServletContext().getRealPath(File.separator);
+            response.setBody((JSONObject) JSONObject.toJSON(paperFacade.executeCode(paperVo, realPath)));
+
         } catch (OeException e) {
             return OeResponseBuilder.buildFailed(e);
         }

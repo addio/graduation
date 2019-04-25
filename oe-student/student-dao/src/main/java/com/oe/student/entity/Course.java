@@ -28,7 +28,6 @@ public class Course implements Serializable {
     private Long schoolId;
 
 
-
     public Long getSchoolId() {
         return schoolId;
     }

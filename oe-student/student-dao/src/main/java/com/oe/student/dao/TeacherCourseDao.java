@@ -1,11 +1,13 @@
 package com.oe.student.dao;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.oe.student.entity.Teacher;
 import com.oe.student.entity.TeacherCourse;
+
+import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie
@@ -16,7 +18,13 @@ public interface TeacherCourseDao {
 
     void updateCourse(TeacherCourse teacherCourse);
 
-    IPage<TeacherCourse> selectTeachersByCourseId(Long courseId);
+    void deleteByCourseId(Long courseId);
 
-    IPage<TeacherCourse> selectCoursesByTeacherId(Long teacherId);
+    List<TeacherCourse> selectTeachersByCourseId(Long courseId);
+
+    List<TeacherCourse> selectCoursesByTeacherId(Long teacherId);
+
+    TeacherCourse getTeacherCourse(TeacherCourse teacherCourse);
+
+    Teacher getTeacherByCourseId(Long courseId);
 }

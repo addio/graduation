@@ -33,11 +33,28 @@ public class ExperimentDaoImpl implements ExperimentDao {
 
     @Override
     public void addExperiment(Experiment experiment) {
-
+        experimentMapper.insert(experiment);
     }
 
     @Override
     public void updateExperiment(Experiment experiment) {
+        experimentMapper.updateById(experiment);
+    }
 
+    @Override
+    public void deleteExperimentByCourseId(Long courseId) {
+        LambdaQueryWrapper<Experiment> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Experiment::getCourseId, courseId);
+        experimentMapper.delete(wrapper);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        experimentMapper.deleteById(id);
+    }
+
+    @Override
+    public Experiment getExperimentById(Long id) {
+        return experimentMapper.selectById(id);
     }
 }

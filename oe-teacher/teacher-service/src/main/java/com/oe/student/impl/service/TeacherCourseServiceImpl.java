@@ -9,14 +9,14 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author wangwenjie
  * @since 2019-04-01
  */
 @Service
-public class TeacherCourseServiceImpl  implements TeacherCourseService {
+public class TeacherCourseServiceImpl implements TeacherCourseService {
 
     @Override
     public void addCourse(TeacherCourse teacherCourse) {

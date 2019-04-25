@@ -5,7 +5,7 @@ import com.oe.student.vo.StudentVo;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author wangwenjie

@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @data 2019/4/1
  */
 @SpringBootApplication
-public class CourseApplication {
+public class StudentApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CourseApplication.class);
+        SpringApplication.run(StudentApplication.class);
     }
 }

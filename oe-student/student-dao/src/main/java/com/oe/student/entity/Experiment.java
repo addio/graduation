@@ -32,6 +32,9 @@ public class Experiment implements Serializable {
 
     private String experimentSteps;
 
+    private Integer status;
+
+    private String experimentAnalysis;
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -52,6 +55,14 @@ public class Experiment implements Serializable {
         this.courseId = courseId;
     }
 
+    public String getExperimentAnalysis() {
+        return experimentAnalysis;
+    }
+
+    public void setExperimentAnalysis(String experimentAnalysis) {
+        this.experimentAnalysis = experimentAnalysis;
+    }
+
     public String getExperimentTitle() {
         return experimentTitle;
     }
@@ -66,6 +77,14 @@ public class Experiment implements Serializable {
 
     public void setExperimentClaim(String experimentClaim) {
         this.experimentClaim = experimentClaim;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getExperimentPurpose() {
